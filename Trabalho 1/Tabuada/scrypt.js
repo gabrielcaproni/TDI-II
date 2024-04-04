@@ -3,18 +3,18 @@ function tabuada(){
     var tab = document.getElementById('seltab')
 
     if(num.value.length == 0){
-        window.alert('POr favor, digite um número!')
+        window.alert('Por favor, digite um número!')
     }else{
-        let n = Number(num.value)
+        var n = Number(num.value)
 
         var c = 1
         tab.innerHTML = ''
-        while(c <= 10){
+
+        for(c = 0; c <= 10; c++){
             var item = document.createElement('option')
             item.text = `${n} x ${c} = ${n*c}`
             item.value = `tab${c}`
             tab.appendChild(item)
-            c++
         }
     }
 }
