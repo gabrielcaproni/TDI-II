@@ -4,6 +4,7 @@
 <html>
 <head>
 	<%@include file="base-head.jsp"%>
+	<title>CRUD MANAGER - EMPRESAS</title>
 </head>
 <body>
 	<%@include file="modal.html"%>
