@@ -42,7 +42,7 @@
 				<div id="actions" class="row pull-right">
 					<div class="col-md-12">
 						<a href="${pageContext.request.contextPath}/posts" class="btn btn-default">Cancelar</a>
-						<button type="submit" class="btn btn-primary">${not empty post ? "Alterar Post" : "Criar Post"}</button>
+    					<button type="submit" class="btn btn-primary">${not empty post ? "Alterar Post" : "Criar Post"}</button>
 					</div>
 				</div>
 			</form>
