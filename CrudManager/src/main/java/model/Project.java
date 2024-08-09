@@ -9,20 +9,24 @@ public class Project {
 	private String description;
 	private Date start_date;
 	private Date end_date;
-	private int company;
+	private Company company;
 	
 	public Project(int id) {
 		this.id = id;
 	}
 	
 	
-	public Project(int id, String name, String description, Date start_date, Date end_date, int company) {
+	public Project(int id, String name, String description, Date start_date, Date end_date, Company company) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.start_date = start_date;
 		this.end_date = end_date;
 		this.company = company;
+	}
+
+	public Project() {
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -66,11 +70,11 @@ public class Project {
 		this.end_date = end_date;
 	}
 
-	public int getCompany() {
+	public Company getCompany() {
 		return company;
 	}
 
-	public void setCompany(int companiesId) {
+	public void setCompany(Company companiesId) {
 		this.company = companiesId;
 	}
 }

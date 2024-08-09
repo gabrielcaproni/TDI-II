@@ -3,6 +3,7 @@ package model.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Company;
 import model.ModelException;
 import model.Project;
 
@@ -22,7 +23,7 @@ public class MySQLProjectDAO implements ProjectDAO{
 		db.setString(2, project.getDescription());
 		db.setDate(3, new java.sql.Date(project.getStart_date().getTime()));
 		db.setDate(4, new java.sql.Date(project.getEnd_date().getTime()));
-		db.setInt(5, project.getCompany());
+		db.setInt(5, project.getCompany().getId());
 		  
 		return db.executeUpdate() > 0;	
 	}
@@ -46,7 +47,7 @@ public class MySQLProjectDAO implements ProjectDAO{
 		db.setString(2, project.getDescription());
 		db.setDate(3, new java.sql.Date(project.getStart_date().getTime()));
 		db.setDate(4, new java.sql.Date(project.getEnd_date().getTime()));
-		db.setInt(5, project.getCompany());
+		db.setInt(5, project.getCompany().getId());
 		db.setInt(6, project.getId());
 		
 		return db.executeUpdate() > 0;
@@ -115,7 +116,9 @@ public class MySQLProjectDAO implements ProjectDAO{
         p.setDescription(db.getString("description"));
         p.setStart_date(db.getDate("start_date"));
         p.setEnd_date(db.getDate("end_date"));
-        p.setCompany(db.getInt("companies_id"));
+        CompanyDAO companyDAO = DAOFactory.createDAO(CompanyDAO.class);
+		Company c = companyDAO.findById(db.getInt("company_id"));
+		p.setCompany(c);
 		
 		return p;
 	}
