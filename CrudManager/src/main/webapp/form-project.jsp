@@ -14,7 +14,7 @@
 			<h3 class="page-header">${action eq "insert" ? "Adicionar " : "Editar "} Projeto</h3>
 			
 			<form action="${pageContext.request.contextPath}/project/${action}" method="POST">
-				<input type="hidden" value="${project.getId()}" name="id">
+				<input type="hidden" value="${projectEdit.getId()}" name="projectId">
 				
 				<div class="row">
 					<div class="form-group col-md-6">
@@ -23,7 +23,7 @@
 							  autofocus="autofocus" placeholder="Nome do Projeto" 
 							  required oninvalid="this.setCustomValidity('Por favor, informe o nome do projeto.')"
 							  oninput="setCustomValidity('')"
-							  value="${project.getName()}"
+							  value="${projectEdit.getName()}"
 							  >
 					</div>
 					
@@ -32,7 +32,7 @@
 							<textarea class="form-control" id="project_description" name="description" 
 							  placeholder="Descrição do Projeto" 
 							  required oninvalid="this.setCustomValidity('Por favor, informe a descrição do projeto.')"
-							  oninput="setCustomValidity('')">${project.getDescription()}</textarea>
+							  oninput="setCustomValidity('')">${projectEdit.getDescription()}</textarea>
 					</div>
 				
 					<div class="form-group col-md-6">
@@ -40,7 +40,7 @@
 							<input type="date" class="form-control" id="project_start_date" name="start_date" 
 								  required oninvalid="this.setCustomValidity('Por favor, informe a data de início do projeto.')"
 								  oninput="setCustomValidity('')"
-								  value="${project.getStart_date()}"
+								  value="${projectEdit.getStart_date()}"
 								  >
 					</div>
 					
@@ -49,7 +49,7 @@
 							<input type="date" class="form-control" id="project_end_date" name="end_date" 
 								  required oninvalid="this.setCustomValidity('Por favor, informe a data de término do projeto.')"
 								  oninput="setCustomValidity('')"
-								  value="${project.getEnd_date()}"
+								  value="${projectEdit.getEnd_date()}"
 								  >
 					</div>
 

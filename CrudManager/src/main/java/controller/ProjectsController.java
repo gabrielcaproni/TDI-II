@@ -82,7 +82,7 @@ public class ProjectsController extends HttpServlet {
 				if (dao.delete(new Project(projectId))) {
 					ControllerUtil.sucessMessage(req, "Projeto " + projectName + " excluido com sucesso");
 				} else {
-					ControllerUtil.errorMessage(req, "Projeto " + projectName + " não pode ser excluido");
+					ControllerUtil.errorMessage(req, "Projeto não pode ser excluido");
 				}
 			} catch (ModelException e) {
 				ControllerUtil.errorMessage(req, "Erro ao excluir projeto");
@@ -115,8 +115,10 @@ public class ProjectsController extends HttpServlet {
 	}
     
 	private void updateProject(HttpServletRequest req) {
-		
-		Project project = createProject(req, 0);
+	
+		String projectIdStr = req.getParameter("projectId");
+		int projectId = Integer.parseInt(projectIdStr);
+		Project project = createProject(req, projectId);
 		
 		ProjectDAO dao = DAOFactory.createDAO(ProjectDAO.class);
 		
@@ -139,7 +141,6 @@ public class ProjectsController extends HttpServlet {
 		String projectStartDate = req.getParameter("start_date");
 		String projectEndDate = req.getParameter("end_date");
 		String projectCompany = req.getParameter("project_company");
-		System.out.println(projectCompany);
 		int projectCompanyId = Integer.parseInt(projectCompany);
 		
 		Project project;

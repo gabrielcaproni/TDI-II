@@ -26,7 +26,7 @@ public class Project {
 	}
 
 	public Project() {
-		// TODO Auto-generated constructor stub
+		this(0);
 	}
 
 

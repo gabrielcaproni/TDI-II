@@ -32,7 +32,7 @@ public class MySQLProjectDAO implements ProjectDAO{
 		
 		DBHandler db = new DBHandler();
 		
-		String sqlUpdate = "UPDATE projects SET name = ?, description = ?, start_date = ?, end_date = ?, companies_id = ? WHERE id = ?; ";
+		String sqlUpdate = "UPDATE projects SET name = ?, description = ?, start_date = ?, end_date = ?, companies_id = ? WHERE id = ?;";
 		
 		db.prepareStatement(sqlUpdate);
 		
@@ -52,8 +52,7 @@ public class MySQLProjectDAO implements ProjectDAO{
 		
 		DBHandler db = new DBHandler();
 		
-		String sqlDelete = " DELETE FROM projects "
-		         + " WHERE id = ?;";
+		String sqlDelete = " DELETE FROM projects WHERE id = ?;";
 
 		db.prepareStatement(sqlDelete);		
 		db.setInt(1, project.getId());
