@@ -14,12 +14,12 @@
 			<h3 class="page-header">${action eq "insert" ? "Adicionar " : "Editar "} Projeto</h3>
 			
 			<form action="${pageContext.request.contextPath}/project/${action}" method="POST">
-				<input type="hidden" value="${project.getId()}" name="projectId">
+				<input type="hidden" value="${project.getId()}" name="id">
 				
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label for="project_name">Nome</label>
-							<input type="text" class="form-control" id="name" name="name" 
+							<input type="text" class="form-control" id="project_name" name="name" 
 							  autofocus="autofocus" placeholder="Nome do Projeto" 
 							  required oninvalid="this.setCustomValidity('Por favor, informe o nome do projeto.')"
 							  oninput="setCustomValidity('')"
@@ -29,7 +29,7 @@
 					
 					<div class="form-group col-md-6">
 						<label for="description">Descrição</label>
-							<textarea class="form-control" id="description" name="description" 
+							<textarea class="form-control" id="project_description" name="description" 
 							  placeholder="Descrição do Projeto" 
 							  required oninvalid="this.setCustomValidity('Por favor, informe a descrição do projeto.')"
 							  oninput="setCustomValidity('')">${project.getDescription()}</textarea>
@@ -37,7 +37,7 @@
 				
 					<div class="form-group col-md-6">
 						<label for="start_date">Data de Início</label>
-							<input type="date" class="form-control" id="start_date" name="start_date" 
+							<input type="date" class="form-control" id="project_start_date" name="start_date" 
 								  required oninvalid="this.setCustomValidity('Por favor, informe a data de início do projeto.')"
 								  oninput="setCustomValidity('')"
 								  value="${project.getStart_date()}"
@@ -46,7 +46,7 @@
 					
 					<div class="form-group col-md-6">
 						<label for="end_date">Data de Término</label>
-							<input type="date" class="form-control" id="end_date" name="end_date" 
+							<input type="date" class="form-control" id="project_end_date" name="end_date" 
 								  required oninvalid="this.setCustomValidity('Por favor, informe a data de término do projeto.')"
 								  oninput="setCustomValidity('')"
 								  value="${project.getEnd_date()}"
@@ -55,17 +55,23 @@
 
 					<div class="form-group col-md-6">
 						<label for="project_department">Empresa</label>
-							<select id="company" class="form-control selectpicker" name="company" 
+							
+							<select id="project_company" class="form-control selectpicker" name="project_company" 
 								    required oninvalid="this.setCustomValidity('Por favor, informe a empresa.')"
 								    oninput="setCustomValidity('')">
-							  <option value="" disabled ${not empty project ? "" : "selected"}>Selecione uma empresa.</option>
+							  
+							  <option value="" disabled ${not empty projectEdit ? "" : "selected"}>Selecione uma empresa.</option>
+							  
 							  <c:forEach var="company" items="${companies}">
+							  	
 							  	<option value="${company.getId()}" 
 							  		${project.getCompanyId() eq company.getId() 
 							  		? "selected" : ""}>
 							  		${company.getName()}
 							  	</option>	
+							  
 							  </c:forEach>
+							
 							</select>
 					</div>
 				</div>
@@ -81,6 +87,13 @@
 		</div>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+		 $(document).ready(function() {
+			 setTimeout(function() {
+			 	$("#alert").slideUp(500);
+			 }, 5000);
+			 
+		 });
 		</script>
 	</body>
 </html>

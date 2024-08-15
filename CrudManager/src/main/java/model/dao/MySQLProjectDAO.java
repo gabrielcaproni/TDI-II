@@ -14,15 +14,14 @@ public class MySQLProjectDAO implements ProjectDAO{
 		
 		DBHandler db = new DBHandler();
 		
-		String sqlInsert = "INSERT INTO projects VALUES "
-				+ " (name, description, start_date, end_date, companies_id) values (?,?,?,?,?);";
+		String sqlInsert = "INSERT INTO projects VALUES (default, ?,?,?,?,?);";
 		
 		db.prepareStatement(sqlInsert);
 		
 		db.setString(1, project.getName());
 		db.setString(2, project.getDescription());
-		db.setDate(3, new java.sql.Date(project.getStart_date().getTime()));
-		db.setDate(4, new java.sql.Date(project.getEnd_date().getTime()));
+		db.setString(3, project.getStart_date());
+		db.setString(4, project.getEnd_date());
 		db.setInt(5, project.getCompany().getId());
 		  
 		return db.executeUpdate() > 0;	
@@ -33,20 +32,15 @@ public class MySQLProjectDAO implements ProjectDAO{
 		
 		DBHandler db = new DBHandler();
 		
-		String sqlUpdate = "UPDATE projects "
-						 + " SET name = ?,"
-						 + " description = ?, "
-						 + " start_date = ?, "
-						 + " end_date = ?, "
-						 + " companies_id = ? "
-						 + " WHERE id = ?; ";
+		String sqlUpdate = "UPDATE projects SET name = ?, description = ?, start_date = ?, end_date = ?, companies_id = ? WHERE id = ?; ";
 		
 		db.prepareStatement(sqlUpdate);
 		
+		
 		db.setString(1, project.getName());
 		db.setString(2, project.getDescription());
-		db.setDate(3, new java.sql.Date(project.getStart_date().getTime()));
-		db.setDate(4, new java.sql.Date(project.getEnd_date().getTime()));
+		db.setString(3, project.getStart_date());
+		db.setString(4, project.getEnd_date());
 		db.setInt(5, project.getCompany().getId());
 		db.setInt(6, project.getId());
 		
@@ -114,10 +108,10 @@ public class MySQLProjectDAO implements ProjectDAO{
 		
 		p.setName(db.getString("name"));
         p.setDescription(db.getString("description"));
-        p.setStart_date(db.getDate("start_date"));
-        p.setEnd_date(db.getDate("end_date"));
+        p.setStart_date(db.getString("start_date"));
+        p.setEnd_date(db.getString("end_date"));
         CompanyDAO companyDAO = DAOFactory.createDAO(CompanyDAO.class);
-		Company c = companyDAO.findById(db.getInt("company_id"));
+		Company c = companyDAO.findById(db.getInt("companies_id"));
 		p.setCompany(c);
 		
 		return p;

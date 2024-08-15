@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<%@include file="base-head.jsp"%>
-		<title>CRUD MANAGER - VENDEDORES</title>
+		<title>CRUD MANAGER - PROJETOS</title>
 	</head>
 	<body>
 		<%@include file="modal.html"%>
@@ -57,7 +57,7 @@
 			                 </tr>
 		            	</thead>
 		            	<tbody>
-		            		<c:forEach var="project" items="${project}">
+		            		<c:forEach var="project" items="${projects}">
 			            		<tr>
 				                    <td>${project.getName()}</td>
 				                    <td>${project.getDescription()}</td>
@@ -67,15 +67,15 @@
 				                    
 				                    <td class="actions">
 				                        <a class="btn btn-info btn-xs" 
-				                           href="${pageContext.request.contextPath}/project/update?sellerId=${project.getId()}" >
+				                           href="${pageContext.request.contextPath}/project/update?projectId=${project.getId()}" >
 				                           <span class="glyphicon glyphicon-edit"></span>
 				                        </a>
 				                    </td>
 				                    
 				                    <td class="actions">
 				                        <a class="btn btn-danger btn-xs modal-remove"
-				                           data-seller-id="${project.getId()}" 
-				                           data-seller-name="${project.getName()}" data-toggle="modal" 
+				                           project-id="${project.getId()}" 
+				                           project-name="${project.getName()}" data-toggle="modal" 
 				                           data-target="#delete-modal"  href="#"><span 
 				                           class="glyphicon glyphicon-trash"></span></a>
 				                    </td>
@@ -107,13 +107,11 @@
 			    setTimeout(function() {
 			        $("#alert").slideUp(500);
 			    }, 3000);
-			    
-			    // ao clicar no delete de algum post, pega o nome do usuário, 
-			    // o id do usuário e a ação (delete) e envia para o modal 
+			     
 			    $(".modal-remove").click(function () {
 		            var projectName = $(this).attr('data-project-name');
 		            var projectId = $(this).attr('data-project-id');
-		            $(".modal-body #hiddenValue").text("o projeto '"+sellerName+"'");
+		            $(".modal-body #hiddenValue").text("o projeto '" + projectName + "'");
 		            $("#id").attr( "value", projectId);
 		            $("#entityName").attr("value", projectName);
 		            $("#form").attr( "action","project/delete");
