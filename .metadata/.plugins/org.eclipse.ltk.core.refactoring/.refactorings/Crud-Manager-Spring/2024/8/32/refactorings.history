@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Crud-Manager-Spring/src/main/resources/templates/cabecalho.html&apos; to &apos;Cabecalho.html&apos;" description="Rename resource &apos;cabecalho.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/templates/cabecalho.html" name="Cabecalho.html" stamp="1723199944163" updateReferences="true"/>
+</session>

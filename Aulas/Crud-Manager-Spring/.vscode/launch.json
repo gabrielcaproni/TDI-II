@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CrudManagerSpringApplication<Crud-Manager-Spring>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.edu.ifsuldeminas.mch.webii.crudmanager.CrudManagerSpringApplication",
+            "projectName": "Crud-Manager-Spring",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

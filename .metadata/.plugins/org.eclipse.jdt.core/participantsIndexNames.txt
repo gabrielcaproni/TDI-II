@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\Users\Gabriel Pegoraro\Desktop\Faculdade\TDI-II\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\249410539.index
+\CrudManager\src\main\java
+C:\Users\Gabriel Pegoraro\Desktop\Faculdade\TDI-II\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1784291298.index
+\CrudManager\src\main\java

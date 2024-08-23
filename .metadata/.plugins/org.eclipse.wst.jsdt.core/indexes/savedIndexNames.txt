@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\Gabriel Pegoraro\Desktop\Faculdade\TDI-II\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2469406678.index
+546817622.index
+3117551657.index
+2909157063.index
+197528942.index
+628729577.index
