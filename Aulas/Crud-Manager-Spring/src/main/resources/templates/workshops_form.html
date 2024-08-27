@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+<div th:replace="cabecalho :: head"></div>
+
+<title>Crud Manager - Form Oficina</title>
+</head>
+
+<body>
+	<div class="container my-2">
+		<h2>Oficina</h2>
+		<form th:action="@{/workshops/register}" th:object="${workshop}" method="POST">
+
+			<input type="hidden" id="id" th:field="*{id}"> 
+			
+			<span class="text-danger" th:if="${#fields.hasErrors('workshopName')}" th:errors="*{workshopName}"></span>
+			<input
+				type="text" placeholder="Nome da oficina" class="form-control mb-4 col-4"
+				th:field="*{workshopName}">
+				
+				<span class="text-danger" th:if="${#fields.hasErrors('capacity')}" th:errors="*{capacity}"></span>
+				 <input type="text" placeholder="Capacidade"
+				class="form-control mb-4 col-4" th:field="*{capacity}">
+							
+				<span class="text-danger" th:if="${#fields.hasErrors('servicesProvided')}" th:errors="*{servicesProvided}"></span>
+				 <input
+				type="text" placeholder="Serviços prestados" class="form-control mb-4 col-4"
+				th:field="*{servicesProvided}">
+
+			<!-- id do endereço -->
+			<input type="hidden" id="idAddress" name="idAddress"
+				th:field="*{address.id}"> 
+				
+				<!-- <span class="text-danger" th:if="${#fields.hasErrors('address.place')}" th:errors="*{address.place}"></span>-->
+				<input type="text"
+				class="form-control mb-4 col-4" th:field="*{address.place}"
+				placeholder="Logradouro"> 
+				
+				<!-- <span class="text-danger" th:if="${#fields.hasErrors('address.number')}" th:errors="*{address.number}"></span> -->
+				<input type="number"
+				class="form-control mb-4 col-4" th:field="*{address.number}"
+				placeholder="Número"> 
+				
+				<!-- <span class="text-danger" th:if="${#fields.hasErrors('address.zipCode')}" th:errors="*{address.zipCode}"></span> -->
+				<input type="text"
+				class="form-control mb-4 col-4" th:field="*{address.zipCode}"
+				placeholder="CEP">
+				
+				<div class="form-group">
+                <label for="services">Possíveis serviços:</label>
+                <ul>
+                    <li th:each="servico : ${servicos}" th:text="${servico}"></li>
+                </ul>
+            </div>
+
+			<button type="submit" class="btn btn-info col-2">Salvar</button>
+
+		</form>
+		<hr>
+		<a th:href="@{/workshops}">Oficinas</a>
+	</div>
+</body>
+</html>

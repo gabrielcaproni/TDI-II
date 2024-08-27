@@ -1,5 +1,0 @@
-package br.edu.ifsuldeminas.mch.webii.crudmanager.repo;
-
-public interface AdressRepository {
-
-}

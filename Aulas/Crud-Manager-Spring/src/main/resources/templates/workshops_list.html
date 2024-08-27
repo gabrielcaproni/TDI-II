@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:replace="cabecalho :: head"></div>
+
+<title>Crud Manager - Oficinas</title>
+</head>
+<body>
+
+	<div th:include="navmenu :: header"></div>
+	<div class="container my-2">
+		<h1>Oficinas</h1>
+		<div>
+			<a th:href="@{workshops/form}"
+				class="btn btn-primary btn-sm mb-3 float-right"> Adicionar
+				Oficina </a>
+		</div>
+		<table class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome da oficina</th>
+					<th>Capacidade de veículos</th>
+					<th>Serviços prestados</th>
+					<th>Localização</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="workshop : ${workshops}">
+					<td th:text="${workshop.id}"></td>
+					<td th:text="${workshop.getWorkshopName()}"></td>
+					<td th:text="${workshop.getCapacity()}"></td>
+					<td th:text="${workshop.getServicesProvided()}"></td>
+					<td th:text="${workshop.getAddress().getPlace() + ', nº ' + workshop.getAddress().getNumber()}"></td>
+					<td><a class="btn btn-primary"
+						th:href="@{/workshops/update/{id}(id = ${workshop.getId()})}">Alterar</a>
+						<a class="btn btn-danger"
+						th:href="@{/workshops/delete/{id}(id = ${workshop.getId()})}">Excluir</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

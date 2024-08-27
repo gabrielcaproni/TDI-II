@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Manager Spring - Página Inicial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .welcome-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #000000;
+        }
+        .welcome-message {
+            font-size: 2rem;
+            color: #FFFFFF;
+        }
+        
+        .welcome-image {
+            width: 100px; /* Ajuste o tamanho da imagem conforme necessário */
+            height: auto;
+            margin-bottom: 20px;
+            padding-right: 25px;
+        }
+    </style>
+</head>
+<body>
+
+	<div th:include="navmenu :: header"></div>
+    <div class="welcome-container">
+    	<img src="/images/logo.png" alt="logo" class="welcome-image">
+        <div class="welcome-message">
+            <h1>Seja bem-vindo !!</h1>
+            <p>Projeto CRUD Manager Spring</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

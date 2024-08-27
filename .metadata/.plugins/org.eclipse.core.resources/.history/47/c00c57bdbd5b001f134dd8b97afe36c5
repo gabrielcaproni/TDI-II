@@ -1,9 +1,0 @@
-package br.edu.ifsuldeminas.mch.webii.crudmanager.repo;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.edu.ifsuldeminas.mch.webii.crudmanager.model.Adress;
-
-public interface AddressRepository extends JpaRepository<Adress, Integer>{
-
-}

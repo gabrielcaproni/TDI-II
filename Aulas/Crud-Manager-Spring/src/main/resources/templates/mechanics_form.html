@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <div th:replace="cabecalho :: head"></div>
+    <title>Crud Manager - Form Mecânicos</title>
+</head>
+
+<body>
+    <div class="container my-2">
+        <h2>Mecânico</h2>
+        <form th:action="@{/mechanics/register}" th:object="${mechanic}" method="POST">
+
+            <input type="hidden" id="id" th:field="*{id}">
+
+            <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            <input type="text" placeholder="Nome" class="form-control mb-4 col-4" th:field="*{name}">
+
+            <span class="text-danger" th:if="${#fields.hasErrors('specialty')}" th:errors="*{specialty}"></span>
+            <input type="text" placeholder="Especialidade" class="form-control mb-4 col-4" th:field="*{specialty}">
+			
+			<span class="text-danger" th:if="${#fields.hasErrors('openingHours')}" th:errors="*{openingHours}"></span>
+            <input type="text" placeholder="Horário de atendimento" class="form-control mb-4 col-4" th:field="*{openingHours}">
+			
+			<span class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+            <input type="text" placeholder="Telefone" class="form-control mb-4 col-4" th:field="*{phone}">
+			
+			
+            <span class="text-danger" th:if="${#fields.hasErrors('workshop')}" th:errors="*{workshop}"></span>
+            <select class="form-control mb-4 col-4" th:field="*{workshop}">
+                <option value="" th:if="${workshop == null}" disabled selected>Selecione uma oficina</option>
+                <option th:each="workshop : ${workshops}"
+                        th:value="${workshop.id}"
+                        th:text="${workshop.workshopName}">Oficina</option>
+            </select>
+
+            <button type="submit" class="btn btn-info col-2">Salvar</button>
+        </form>
+        <hr>
+        <a th:href="@{/mechanics}">Mecânicos</a>
+    </div>
+</body>
+</html>

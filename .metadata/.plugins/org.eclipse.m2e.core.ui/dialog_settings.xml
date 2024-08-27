@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Gabriel Pegoraro\Desktop\Faculdade\TDI-II\Aulas\Crud-Manager-Spring"/>
+			<item value="C:\Users\Gabriel Pegoraro\Desktop\Faculdade\TDI-II\Trabalhos\Crud-Manager-Spring-Trb04\Crud-Manager-Spring"/>
 			<item value="C:\Users\Gabriel Pegoraro\Desktop\Faculdade\TDI-II\Crud-Manager-Spring"/>
 		</list>
 		<list key="projectNameTemplate">
