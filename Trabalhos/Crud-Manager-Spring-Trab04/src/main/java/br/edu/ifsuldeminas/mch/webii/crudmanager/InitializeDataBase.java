@@ -35,37 +35,49 @@ public class InitializeDataBase implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
+		
+		// _________ Setando Usuários ________
+		
 		User gabriel = new User();
 		gabriel.setName("Gabriel Pegoraro");
 		gabriel.setGender("M");
 		gabriel.setEmail("gabriel@gmail.com");
 
-		Address addressG = new Address();
-		addressG.setPlace("Rua dos bobos");
-		addressG.setNumber(250);
-		addressG.setZipCode("37750-000");
-
 		User guilherme = new User();
 		guilherme.setName("Guilherme Henrique");
 		guilherme.setGender("M");
 		guilherme.setEmail("guilherme@gmail.com");
+		
+		// _________ Setando Endereço Usuários ________
+		
+		Address addressG = new Address();
+		addressG.setPlace("Rua dos bobos");
+		addressG.setNumber(250);
+		addressG.setZipCode("37750-000");
 
 		Address addressGui = new Address();
 		addressGui.setPlace("Rua dos Joazeiros");
 		addressGui.setNumber(582);
 		addressGui.setZipCode("25874-021");
 
+		// _________ Salvando Endereço Usuários ________
+		
 		addressRepository.save(addressG);
 		addressRepository.save(addressGui);
 		addressRepository.flush();
 
+		// _________Setando Endereço Usuários________
+		
 		gabriel.setAddress(addressG);
 		guilherme.setAddress(addressGui);
 
+		// _________ Salvando Usuários ________
+		
 		userRepository.save(gabriel);
 		userRepository.save(guilherme);
 		
-		// Criando primeira oficina
+		
+		// Criando Primeira Oficina
 		
 		Workshop of1 = new Workshop();
 		of1.setWorkshopName("Simas Turbo");
@@ -81,6 +93,8 @@ public class InitializeDataBase implements CommandLineRunner {
             System.out.println(servico);
         }
 		
+     // _________ Setando Endereço Oficina ________
+        
 		Address locOf1 = new Address();
 		locOf1.setPlace("Rua irmãos Germano");
 		locOf1.setNumber(260);
@@ -92,6 +106,8 @@ public class InitializeDataBase implements CommandLineRunner {
 		of1.setAddress(locOf1);
 		
 		workshopRepository.save(of1);
+		
+		// _________ Criando Um Novo Mecânico ________
 		
 		Mechanic mec1 = new Mechanic();
 		mec1.setName("Alceu Tavares");
